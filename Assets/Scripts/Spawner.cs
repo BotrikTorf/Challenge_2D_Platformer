@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Spawner : ObjectPool
@@ -9,33 +10,33 @@ public class Spawner : ObjectPool
 
     private Vector3 _spawner;
     private float _distancePlayer;
-    private float _elapsedTime = 0;
+    private WaitForSeconds _waitForSeconds;
 
     private void Start()
     {
         _spawner = transform.position;
         _distancePlayer = _spawner.x;
         Initialize(_prefabBird);
+        _waitForSeconds = new WaitForSeconds(_secondBetweenSpawn);
+        StartCoroutine(SpawnBird());
     }
 
     private void Update()
     {
         _spawner.x = _player.transform.position.x + _distancePlayer;
         transform.position = _spawner;
-
-        _elapsedTime += Time.deltaTime;
     }
 
-    private void FixedUpdate()
+    private IEnumerator SpawnBird()
     {
-        if (_elapsedTime >= _secondBetweenSpawn)
+        while (true)
         {
             if (TryGetObject(out GameObject bird))
             {
-                _elapsedTime = 0;
                 int spawntPointNumber = Random.Range(0, _spawnPoints.Length);
                 SetBird(bird, _spawnPoints[spawntPointNumber].position);
             }
+            yield return _waitForSeconds;
         }
     }
 

@@ -4925,7 +4925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 1471302614}
-  _capacity: 10
+  _capacity: 7
   _player: {fileID: 886209309}
   _prefabBird: {fileID: 6127570778454757940, guid: a869ec4937562ca4f963993a7f5327aa, type: 3}
   _secondBetweenSpawn: 2

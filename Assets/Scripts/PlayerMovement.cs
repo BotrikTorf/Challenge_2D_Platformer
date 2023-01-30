@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpSpeed = 15;
     [SerializeField] private Animator _animator;
 
+    private static readonly int _isJump = Animator.StringToHash("IsJump");
+    private static readonly int _speed = Animator.StringToHash("Speed");
+    private static readonly int _isWater = Animator.StringToHash("IsWater");
+
     private Rigidbody2D _rigidbody2D;
     private float _horizontalMove;
     private bool _isFacingRight = true;
@@ -15,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = false;
     private float _checkGroundOffsety = 0.25f;
     private float _checkGroundRadius = 0.3f;
-    
+
     private void Start()
     {
         _targetVelocity = transform.position;
@@ -32,22 +36,22 @@ public class PlayerMovement : MonoBehaviour
         else if (_horizontalMove > 0 && _isFacingRight == false)
             Flip();
 
-        _animator.SetFloat("Speed", Mathf.Abs(_horizontalMove));
+        _animator.SetFloat(_speed, Mathf.Abs(_horizontalMove));
 
         if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W))
         {
             if (_isGrounded && _haveTouchdown)
             {
-                _animator.SetBool("IsJump", true);
+                _animator.SetBool(_isJump, true);
                 _rigidbody2D.AddForce(transform.up * _jumpSpeed, ForceMode2D.Impulse);
                 _haveTouchdown = false;
             }
         }
 
         if (_isGrounded == false)
-            _animator.SetBool("IsJump", true);
+            _animator.SetBool(_isJump, true);
         else
-            _animator.SetBool("IsJump", false);
+            _animator.SetBool(_isJump, false);
     }
 
     private void FixedUpdate()
@@ -60,13 +64,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out TilemapWater water))
-            _animator.SetBool("IsWater", true);
+            _animator.SetBool(_isWater, true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out TilemapWater water))
-            _animator.SetBool("IsWater", false);
+            _animator.SetBool(_isWater, false);
     }
 
     private void Flip()

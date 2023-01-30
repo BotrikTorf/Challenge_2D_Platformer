@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Spawner : Object_Pool
+public class Spawner : ObjectPool
 {
-    [SerializeField] private GameObject _player;
+    [SerializeField] private Player _player;
     [SerializeField] private GameObject _prefabBird;
     [SerializeField] private float _secondBetweenSpawn;
     [SerializeField] private Transform[] _spawnPoints;

@@ -12,7 +12,19 @@ public class Player : MonoBehaviour
 
     public event UnityAction Died;
 
-    void Start()
+    public void ApplyDamage(int damage)
+    {
+        _health -= damage;
+
+        if (_health > 0)
+            _textHealth.text = _health.ToString();
+        else
+            Die();
+    }
+
+    public void Die() => Died?.Invoke();
+
+    private void Start()
     {
         _coin = 0;
         _health = 5;
@@ -27,20 +39,5 @@ public class Player : MonoBehaviour
             _coin++;
             _textCoin.text = _coin.ToString();
         }
-    }
-
-    public void ApplyDamage(int damage)
-    {
-        _health -= damage;
-
-        if (_health > 0)
-            _textHealth.text = _health.ToString();
-        else
-            Die();
-    }
-
-    public void Die()
-    {
-        Died?.Invoke();
     }
 }

@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b768b9e9772b042a493b9f642b4502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 886209301}
+  _player: {fileID: 886209309}
 --- !u!4 &153222071
 Transform:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7a275f573efc14b83d901a45555c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 886209301}
+  _player: {fileID: 886209309}
 --- !u!1 &521232009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,7 +4926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 1471302614}
   _capacity: 10
-  _player: {fileID: 886209301}
+  _player: {fileID: 886209309}
   _prefabBird: {fileID: 6127570778454757940, guid: a869ec4937562ca4f963993a7f5327aa, type: 3}
   _secondBetweenSpawn: 2
   _spawnPoints:

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -28,7 +25,6 @@ public class PanelGameOver : MonoBehaviour
         _exitButton.onClick.RemoveListener(OnExitButtonClick);
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -47,8 +43,5 @@ public class PanelGameOver : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private void OnExitButtonClick()
-    {
-        Application.Quit();
-    }
+    private void OnExitButtonClick() => Application.Quit();
 }

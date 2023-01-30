@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
+    [SerializeField] private Player _player;
 
     private Vector3 _destroy;
     private float _distancePlayer;

@@ -8,10 +8,12 @@ public class Bird : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
         {
             player.ApplyDamage(_damage);
-            gameObject.SetActive(false);
+            DisableBird();
         }
 
         if (collision.TryGetComponent(out Destroyer _))
-            gameObject.SetActive(false);
+            DisableBird();
     }
+
+    private void DisableBird() => gameObject.SetActive(false);
 }

@@ -40,7 +40,7 @@ public class PanelGameOver : MonoBehaviour
     private void OnRestartButtonClick()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void OnExitButtonClick() => Application.Quit();

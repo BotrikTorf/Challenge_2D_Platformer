@@ -2,14 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CanvasLevel2 : MonoBehaviour
+public class ManageButtons : MonoBehaviour
 {
-    [SerializeField] private PlayerLevel2 _player;
+    [SerializeField] private Character _character;
     [SerializeField] private Button _buttonCure;
     [SerializeField] private Button _buttonDamage;
     [SerializeField] private TMP_Text _text;
+    [SerializeField] private int _damage;
+    [SerializeField] private int _cure;
 
-    private void Start() => _text.text = _player.Health.ToString();
+    private void Start() => _text.text = _character.MaxHealth.ToString();
     
     private void OnEnable()
     {
@@ -25,13 +27,13 @@ public class CanvasLevel2 : MonoBehaviour
 
     private void OnButtonDamageClick()
     {
-        _player.TakeDamage();
-        _text.text = _player.Health.ToString();
+        _character.TakeDamage(_damage);
+        _text.text = _character.Health.ToString();
     }
 
     private void OnButtonCureClick()
     {
-        _player.ReceiveHealing();
-        _text.text = _player.Health.ToString();
+        _character.ReceiveHealing(_cure);
+        _text.text = _character.Health.ToString();
     }
 }

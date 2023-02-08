@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 158563112}
   - component: {fileID: 158563111}
   m_Layer: 5
-  m_Name: HealthBarOne
+  m_Name: HealthBarHeart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167ae161f73b92d49a3fa7af2e1cd65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1073822443}
+  _character: {fileID: 1073822443}
   _heart: {fileID: 1617685116760072220, guid: 77db7e61db70ea34bb4a8ae9270396cf, type: 3}
 --- !u!114 &158563112
 MonoBehaviour:
@@ -401,13 +401,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 446877800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457462acefe91ef47b657c036abd69bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 05f6b136f46543f499c1fafb544f2764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1073822443}
+  _character: {fileID: 1073822443}
   _buttonCure: {fileID: 1893379656}
   _buttonDamage: {fileID: 992797178}
   _text: {fileID: 1777361889}
+  _damage: 2
+  _cure: 3
 --- !u!1 &489282885
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +879,7 @@ GameObject:
   - component: {fileID: 595498348}
   - component: {fileID: 595498349}
   m_Layer: 5
-  m_Name: HealthBarTwo
+  m_Name: HealthBarSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,6 +1002,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   _imageFill: {fileID: 1839994936}
+  _duration: 1
 --- !u!1 &603987359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1288,7 @@ GameObject:
   - component: {fileID: 1073822441}
   - component: {fileID: 1073822443}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1367,8 +1370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 10
-  _healthBarOne: {fileID: 158563111}
-  _healthBarTwo: {fileID: 595498349}
 --- !u!1 &1113470558
 GameObject:
   m_ObjectHideFlags: 0

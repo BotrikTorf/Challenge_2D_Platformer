@@ -20,7 +20,7 @@ public class Heart : MonoBehaviour
 
     public void ToEmpty() => StartCoroutine(Filling(1, 0, _lerpDuration, Destroy));
 
-    private IEnumerator Filling(float startValue, float endValue, float duration,
+    private IEnumerator Filling(float startValue, float endValue, float duration, 
         UnityAction<float> lerpingEnd)
     {
         float elapsed = 0;
